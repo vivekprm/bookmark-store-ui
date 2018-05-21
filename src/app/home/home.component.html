@@ -1,0 +1,8 @@
+<div class="col-sm-4">
+  <input class="form-control mr-sm-2" [(ngModel)]="searchText" type="search" placeholder="Search" aria-label="Search">
+</div>
+<div class="row col-sm-12">
+  <div *ngFor="let bookmark of bookmarks | filter:searchText" class="col-sm-4 col-lg-4 col-md-4">
+    <app-bookmark-item [bookmark]="bookmark"></app-bookmark-item>
+  </div>
+</div>

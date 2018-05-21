@@ -1,0 +1,51 @@
+<h4>Create Bookmark</h4>
+<div class="col-md-8">
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)" novalidate>
+  <div class="form-group">
+    <label for="title">Bookmark title:</label><br/>
+    <input class="form-control" required minlength="5" id="title"
+           placeholder="Title" type="text"
+           name="title" [(ngModel)]="f.title" #title="ngModel">
+    <div *ngIf="title.invalid && (title.dirty || title.touched)"
+           class="alert alert-danger">
+      <div *ngIf="title.errors.required">
+          Title is required.
+      </div>
+      <div *ngIf="title.errors.minlength">
+          Title must be at least 5 characters long.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="url">URL:</label><br/>
+    <input class="form-control" id="url" required
+           placeholder="URL" type="url" pattern="(https|http)?://.+"
+           name="url" [(ngModel)]="f.url" #url="ngModel">
+    <div *ngIf="url.invalid && (url.dirty || url.touched)"
+           class="alert alert-danger">
+      <div *ngIf="url.errors.required">
+          URL is required.
+      </div>
+      <div *ngIf="url.errors.pattern">
+        URL is not proper.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="notes">Notes:</label><br/>
+    <input class="form-control" id="notes"
+           placeholder="notes" type="text"
+           name="notes" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="tags">Tags:</label><br/>
+    <input class="form-control" id="tags"
+           placeholder="tags" type="text"
+           name="tags" ngModel>
+  </div>
+  <div class="form-group">
+    <button type="submit"
+            class="btn btn-primary btn-block form-control" [disabled]="!f.form.valid">Submit</button>
+  </div>
+</form>
+</div>

@@ -1,0 +1,20 @@
+<figure class="figure">
+  <figcaption class="figure-caption">
+    <h4>Title: {{bookmark.title}}</h4>
+    <h5>URL: {{bookmark.url}}</h5>
+    <h5> Notes: {{bookmark.notes}}</h5>
+    <h5> Tags: {{bookmark.tags}}</h5>
+    <!--h5>Categories:
+    <ul>
+    <li *ngFor="let category of product.categories">
+      {{category}}
+    </li>
+    </ul></h5-->
+  </figcaption>
+</figure>
+<form #f="ngForm" (ngSubmit)="onSubmit(bookmark.id)">
+  <div class="form-group col-sm-2">
+    <button type="submit"
+            class="btn btn-primary btn-block">Delete</button>
+  </div>
+</form>
